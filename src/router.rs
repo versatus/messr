@@ -85,6 +85,7 @@ where
     pub async fn start(&mut self, message_rx: &mut BoundedReceiver<Message<E>>) {
         while let Some(message) = message_rx.recv().await {
             if matches!(message.data, MessageData::StopSignal) {
+                self.fan_out_message(message);
                 return;
             }
 
