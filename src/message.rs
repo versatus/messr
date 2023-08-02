@@ -41,7 +41,6 @@ where
     }
 
     pub fn new_with_id(id: uuid::Uuid, data: E, topic: Option<Topic>) -> Self {
-        let id = uuid::Uuid::new_v4();
         let timestamp = chrono::Utc::now().timestamp();
 
         Self {
